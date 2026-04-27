@@ -40,3 +40,15 @@ Pinning to `0.7.2` makes every error disappear (only formatting warnings remain)
 pnpm add -D prettier-plugin-tailwindcss@0.7.2
 pnpm format:check
 ```
+
+## Workaround
+
+Per the [maintainer's comment](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/456#issuecomment-4326725540), bumping `prettier` to `3.7` or later resolves all four `TypeError`s while keeping `prettier-plugin-tailwindcss@0.7.3`:
+
+```sh
+pnpm add -D prettier@3.7
+# or
+pnpm add -D prettier@latest
+```
+
+Verified on this repo with `prettier@3.7.4` and `prettier@3.8.3` — every `TypeError` disappears and only formatting warnings remain. See the [`verify/prettier-bump-workaround`](https://github.com/inouetakuya/prettier-plugin-tailwindcss-v0.7.3-repro/tree/verify/prettier-bump-workaround) branch for the verification commits.
